@@ -510,7 +510,7 @@ table {
   .container,
   .container-fluid {
     width: 300px;
-    padding: 0 15px;
+    /*padding: 0 15px;*/
   }
   .row {
     margin-left: 0;

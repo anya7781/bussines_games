@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Территория роста</title>
+    <title>Финансовая свобода</title>
 
     <meta name="description" content="Blue One Page Creative HTML5 Template">
     <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
@@ -130,6 +127,26 @@
                 }
             });
         });
+
+        function send_present(){
+            var name = $("#name2").val();
+            var phone = $("#phone2").val();
+            var email = $("#email2").val();
+            var source = "present";
+
+            $.post('/handler.php', {name:name, phone:phone, source:source, email: email});
+            $('#thanks').modal('show');
+        }
+
+        function standart_send(){
+            var name = $("#name3").val();
+            var phone = $("#phone3").val();
+            var email = $("#email3").val();
+            var source = "standart";
+
+            $.post('/handler.php', {name:name, phone:phone, source:source, email: email});
+            $('#thanks').modal('show');
+        }
     </script>
 </head>
 
@@ -138,6 +155,8 @@
         <div id="preloader">
             <img src="img/preloader.gif" alt="Preloader">
         </div>
+
+        <img src="img/1111.png" width="200" style = "position: fixed; z-index: 11;">
 
         <!--
         Fixed Navigation
@@ -150,36 +169,25 @@
                         <span class="sr-only">Toggle navigation</span>
                         <i class="fa fa-bars fa-2x"></i>
                     </button>
-                    <!-- /responsive nav button -->
-
-                    <!-- logo -->
-                    <a class="navbar-brand" href="#body">
-                        <h1 id="logo">
-                            <img src="img/logo1.png" alt="Brandi">
-                        </h1>
-                    </a>
-                    <!-- /logo -->
-
-                    <a class="navbar-brand phone" href="#body" style = "margin: 15px 0 0 100px; color: #B5B5B5;">
-                        <h1>
-                          +7 (918) 57 90 191
-                        </h1>
-                    </a>
-
                 </div>
 
                 <!-- main nav -->
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
-                    <ul id="nav" class="nav navbar-nav" style="color: #B5B5B5">
-                        <li class="current"><a href="#body">ГЛАВНАЯ</a></li>
-                        <li><a href="#features">ИГРЫ-ТРЕНИНГИ</a></li>
-                        <li><a href="#facts">ЗАПИСЬ</a></li>
+                    <ul id="nav" class="nav navbar-nav" style="color: #fff">
+                        <li class="current"><a href="#features">ОБ ИГРЕ</a></li>
+                        <li><a href="#present">ПОДАРОК</a></li>
+                        <li><a href="#details">ПОДРОБНОСТИ</a></li>
                         <li><a href="#contacts">КОНТАКТЫ</a></li>
+                        <li><a style = "color: #FAFA05">8 (918) 57-90-191</a></li>
                     </ul>
                 </nav>
                 <!-- /main nav -->
             </div>
         </header>
+
+
+
+        </div>
 
         <?php include('blocks/header.php'); ?>
 
@@ -188,167 +196,187 @@
         ==================================== -->
 
         <section id="features" class="features">
-            <div class="container">
-                <div class="row">
-
+            <div class="container full">
+                <p style = "color: #000; font-size:20px; text-align: center; font-style: italic; margin-bottom: 10px; font-weight: bold;">
+                    Впервые в Краснодаре и только у нас! </p>
+                <div class="devider"></div>
+                <div class="row people">
                     <div class="sec-title text-center">
-                         <h2>ИГРЫ-ТРЕНИНГИ</h2>
-                         <div class="devider"></div>
+                         <h2 style = "color:#fff!important;">Игра будет полезна, если у тебя:</h2>
                       </div>
-
-                    <!--------------------------- First ------------------------------>
-                    <div class = "game-box mb50 wow bounceInLeft animated" data-wow-duration="1000ms">
-
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-                        <div class = "game-description">
-                            <p class = "price">ЦЕНА: 200р.</p>
-                            <div class = "description">
-                                <p style="font-size: 23px; color: #000; margin-top: 15px; font-weight: bold;">CASH FLOW 101</p>
-                                <a href="#facts"><button type = "submit" class = "go-to-game"> Хочу на игру! </button></a>
-
-                                <div class = "icon-description">
-                                    <span class="glyphicon glyphicon-ok icon-ok"></span>
-                                    <p>Учит грамотно распоряжаться деньгами </p>
-                                </div>
-
-                                <div class = "icon-description">
-                                    <span class="glyphicon glyphicon-ok icon-ok"></span>
-                                    <p>Знакомит с основами инвестирования</p>
-                                </div>
-
-                                <div class = "icon-description">
-                                    <span class="glyphicon glyphicon-ok icon-ok"></span>
-                                    <p> Отлично подходит для новичков </p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class = "game-image">
-                        </div>
-
-                        <div class = "game-number">
-                            <p>01</p>
-                        </div>
-                    </div>
-
-                    <!--------------------------- Second ------------------------------>
-                    <div class = "game-box mb50 wow bounceInRight animated" data-wow-duration="1000ms">
-
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-                        <div class = "game-description-back">
-                            <p class = "price-back">ЦЕНА: 300р.</p>
-                            <div class = "description-back">
-                                <p style="font-size: 23px; color: #000; margin-top: 15px; font-weight: bold;">CASH FLOW 202</p>
-                                <a href="#facts"><button type = "submit" class = "go-to-game-back"> Хочу на игру! </button></a>
-
-                                <div class = "icon-description-back">
-                                    <span class="glyphicon glyphicon-ok icon-ok-back"></span>
-                                    <p> Обучает технической торговле на фондовом рынке </p>
-                                </div>
-
-                                <div class = "icon-description-back">
-                                    <span class="glyphicon glyphicon-ok icon-ok-back"></span>
-                                    <p>Учит зарабатывать на росте и спаде рынка</p>
-                                </div>
-
-                                <div class = "icon-description-back">
-                                    <span class="glyphicon glyphicon-ok icon-ok-back"></span>
-                                    <p>Требует базовые знания о финансах и инвестициях</p>
+                    <div class="container" style = "margin-top: 50px; color: #fff!important;">
+                        <div class="row number-counters">
+                            <!-- first count item -->
+                            <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
+                                <div class="counters-item peoples">
+                                    <img src = "img/man1.png" width = "100" style = "border:1px dashed #FAFA05;
+                                    padding: 5px; border-radius:50%;">
+                                    <p> До сих пор нет источников <b style = "color: #FAFA05;">пассивного дохода</b> </p>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class = "game-image-back cash2">
-                        </div>
-
-                        <div class = "game-number-back">
-                            <p>02</p>
-                        </div>
-                    </div>
-
-
-                    <!--------------------------- Third ------------------------------>
-                    <div class = "game-box mb50 wow bounceInLeft animated" data-wow-duration="1000ms">
-
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-                        <div class = "game-description">
-                            <p class = "price mobile-down" style = "bottom: 10%">ЦЕНА: <strike> 1000р</strike>.<br><br> <b style = "color: red; margin-left: 55%"> 500р. </b></p>
-                            <div class = "description">
-                                <p style="font-size: 23px; color: #000; margin-top: 15px; font-weight: bold;">Гений финансов</p>
-                                <a href="#facts"><button type = "submit" class = "go-to-game"> Хочу на игру! </button></a>
-
-                                <p class = "condition">Условие участия: успешное прохождение cash flow 101 или 202</p>
-
-                                <div class = "icon-description">
-                                    <span class="glyphicon glyphicon-ok icon-ok"></span>
-                                    <p> Адапритрована под российский рынок </p>
-                                </div>
-
-                                <div class = "icon-description">
-                                    <span class="glyphicon glyphicon-ok icon-ok"></span>
-                                    <p>Требует уверенных знаний в области финансов и инвестирования</p>
-                                </div>
-
-                                <div class = "icon-description">
-                                    <span class="glyphicon glyphicon-ok icon-ok"></span>
-                                    <p>Не имеет аналогов и существует всего в нескольких экземплярах</p>
+                            <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                                <div class="counters-item peoples">
+                                    <img src = "img/man2.png" width = "100" style = "border:1px dashed #FAFA05;
+                                    padding: 5px; border-radius:50%;">
+                                    <p><b style = "color: #FAFA05;">Денег</b> всегда не хватает</p>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class = "game-image genues">
-                        </div>
-
-                        <div class = "game-number">
-                            <p>03</p>
+                            <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
+                                <div class="counters-item peoples">
+                                    <img src = "img/man3.png" width = "100" style = "border:1px dashed #FAFA05;
+                                    padding: 5px; border-radius:50%;">
+                                    <p>Нет идей для развития <b style = "color: #FAFA05;"> бизнеса </b></p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
+                                <div class="counters-item peoples">
+                                    <img src = "img/man4.png" width = "100" style = "border:1px dashed #FAFA05;
+                                    padding: 5px; border-radius:50%;">
+                                    <p> Боишься начать <b style = "color: #FAFA05;"> свое дело </b> </p>
+                                </div>
+                            </div>
+                            <!-- end first count item -->
                         </div>
                     </div>
+                </div>
+                </div>
 
+            <div class = "container full">
+                <div class = "row" style = "background-color: #fff; padding: 0;">
+                    <img src = "img/phrase.png" style = "width: 100%;">
+                    <div class="sec-title text-center" style = "margin-bottom: 50px;">
+                        <h2 style = "color:#000!important; margin-top: 30px;">На игре ты научишься:</h2>
+                    </div>
+
+                    <div style="padding: 0 100px;">
+                        <p style = "font-size: 30px; color: #000; padding: 0; margin:0;">
+                            <img src="img/circle1.png" width = "70" style="border-radius:50%; margin-right: 40px;">
+                            <span class = "text"> Вести <b style = "font-weight:bold">переговоры </b> с партнерами</span>
+                        </p>
+                        <img class = "line" src = "img/line.png" height = "70" style = "padding:0; margin-right: 40px;">
+                        <br>
+                        <p style = "font-size: 30px; color: #000; margin: 0; padding: 0;">
+                            <img src="img/circle2.png" width = "70" style="border-radius:50%; margin-right: 40px;">
+                            <span class = "text"> Создавать источники <b style = "font-weight:bold"> пассивного дохода</b>
+                        </p>
+                        <img class = "line" src = "img/line.png" height = "70" style = "padding:0">
+                        <br>
+                        <p style = "font-size: 30px; color: #000;">
+                            <img src="img/circle3.png" width = "70" style="border-radius:50%; margin-right: 40px;">
+                            <span class = "text">  Находить необходимые <b style = "font-weight:bold">ресурсы</b></span>
+                        </p>
+                        <img class = "line" src = "img/line.png" height = "70" style = "padding:0">
+                        <br>
+                        <p style = "font-size: 30px; color: #000;">
+                            <img src="img/circle4.png" width = "70" style="border-radius:50%; margin-right: 40px;">
+                            <span class = "text"> Быстро принимать <b style = "font-weight:bold"> решения </b></span>
+                        </p>
+                        <img class = "line" src = "img/line.png" height = "70" style = "padding:0">
+                        <br>
+                        <p style = "font-size: 30px; color: #000;">
+                            <img src="img/circle5.png" width = "70"  style="border-radius:50%; margin-right: 40px;">
+                            <span class = "text"> Работать в условиях <b style = "font-weight:bold"> стресса </b></span>
+                        </p>
+                        <img class = "line" src = "img/line.png" height = "70" style = "padding:0">
+                        <br>
+                        <p style = "font-size: 30px; color: #000;">
+                            <img src="img/circle6.png" width = "70" style="border-radius:50%; margin-right: 40px;">
+                            <span class = "text">Использовать каждую <span style = "font-weight:bold"> возможность</span></span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!--
-        End Features
-        ==================================== -->
+        <div class = "container full" style = "font-size: 25px;">
+            <div class = "row">
+                <div style = "width: 100%; background-color:#E7DFE7; color: #000; text-align: center; padding: 30px;">
+                    <p> Успей забронировать место на игру. </p>
+                    <p style ="font-weight: bold;"> Количество мест строго ограничено!</p>
+                    <button style = "margin-top:10px;" class = "go-to-game-last" data-toggle="modal" data-target="#feedbackForm"> Забронировать место </button>
+                </div>
+            </div>
+        </div>
 
+        <section id="present" class="features">
+            <div class = "container full">
+                <div class="row number-counters bonus" style="margin: auto; margin-top: 20px; margin-bottom: 20px; border-radius: 10%;">
+                    <div class="sec-title text-center mb50 wow rubberBand animated" data-wow-duration="1000ms" style = "font-size: 25px; font-family: 'CenturyGothicRegular', sans-serif;">
+                        <h2 style = "color: #FAFA05!important; font-family: 'CenturyGothicRegular', sans-serif; font-weight: 100">видео-бонус</h2>
+                        <p style = "font-size: 25px; color: #fff;"> Получи 8 правил, которые позволят
+                        сохранить и приумножить твои деньги!</p>
+                        <form method = post action="handler.php" onsubmit = "send_present(); return false;">
+                            <input id = "name2" type = "text" style = "font-size:15px; width: 50%; height: 35px; border-radius: 20px; padding-left: 15px; color: #000; margin-top:25px;" name = "name" placeholder="Имя" required>
+                            <input id = "phone2" type = "text" style = "font-size:15px; width: 50%; height: 35px; border-radius: 20px; padding-left: 15px; color:#000; margin-top:15px;" name = "phone" placeholder="+7 (ххх) хх хх ххх" required>
+                            <input id = "email2" type = "email" style = "font-size:15px; width: 50%; height: 35px; border-radius: 20px; padding-left: 15px; color: #000; margin-top:15px;" name = "name" placeholder="Email" required>
 
-
-        <!--
-        Register from
-        ==================================== -->
-
-        <section id="facts" class="facts">
-            <div class="parallax-overlay">
-                <div class="container">
-                    <div class="row number-counters">
-
-                        <div class="sec-title text-center mb50 wow rubberBand animated" data-wow-duration="1000ms" style = "font-size: 25px; font-family: 'CenturyGothicRegular', sans-serif;">
-                            <h2 style = "color: #ffffff; font-family: 'CenturyGothicRegular', sans-serif; font-weight: 100">Записаться на игру-тренинг</h2>
-                            <div class="devider"></div>
-
-                            <form method = post action="handler.php">
-                                <input type = "text" style = "width: 50%; height: 55px; border-radius: 20px; padding-left: 15px; color: #000; margin-top:30px;" name = "name" placeholder="Имя" required>
-                                <input type = "text" style = "width: 50%; height: 55px; border-radius: 20px; padding-left: 15px; color:#000; margin-top:30px;" name = "phone" placeholder="+7 (ххх) хх хх ххх" required>
-
-                                <select style = "width: 50%; height: 55px; border-radius: 20px; padding-left: 15px; color:#000; margin-top:30px;" name = "game">
-                                    <option value="101">Cash flow 101</option>
-                                    <option value="202">Cash flow 202</option>
-                                    <option value="genues">Гений финансов</option>
-                                </select>
-
-                                <br><button type = "submit" class = "go-to-game-last"> Хочу на игру! </button>
-                            </form>
-                        </div>
-
+                            <br><button type = "submit" class = "get-bonus"> Получить бонус </button>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="details" class="features">
+            <div class = "container full" style = "border: 7px double #FAFA05; margin-bottom: 20px;">
+                <div class = "row">
+<!--                    <div class = "about-game" style = "border: 1px solid red;">-->
+                        <div class="sec-title text-center">
+                            <h2 style = "color:#000!important; margin: 40px 0 20px 0;">ГДЕ И КОГДА?</h2>
+                        </div>
+
+                        <div class="col-md-6 about-game" style = "height: 300px; margin: 25px 0 20px 0;">
+                            <p> <span style="font-weight: bold"> Дата:</span> 17 марта (суббота) </p>
+                            <p> <span style="font-weight: bold"> Время:</span> 17.00 - 21.00 </p>
+                            <p> <span style="font-weight: bold"> Кол-во участников:</span> до 8 человек </p>
+                            <p> <span style="font-weight: bold"> Стоимость:</span> 1000р. </p>
+                            <p> С репостом <a href="#" style = "color:blue;">этой записи </a> ВК,
+                                стоимость <span style = "text-decoration: underline">первой </span> игры  <span style = "font-size: 25px; font-weight: bold;">300р</span></p>
+                             <p> <span style="font-weight: bold"> Адрес:</span> ул. Северная 400, офис 405</p>
+                        </div>
+
+                        <div class="col-md-6" style="border-radius: 20px; margin: 40px 0 20px 0;
+                            background: url('img/game.jpg'); background-size: cover; height: 300px;">
+                        </div>
+
+
+<!--                    </div>-->
+                </div>
+                <div style = "text-align: center; width: 100%;">
+                    <br><button data-toggle="modal" data-target="#feedbackForm" style="background-color: #FAFA05;
+                                                        color: #000;
+                                                        margin-bottom: 20px;
+                                                        padding: 10px 15px 10px 15px;
+                                                        border-radius: 20px;
+                                                        font-size: 18px;
+                                                        font-weight: bold;">
+                        Хочу на игру!
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+<!--        <section id="facts" class="facts">-->
+<!--            <div class="parallax-overlay">-->
+<!--                <div class="container">-->
+<!--                    <div class="row number-counters">-->
+<!--                        <div class="sec-title text-center mb50 wow rubberBand animated" data-wow-duration="1000ms" style = "font-size: 25px; font-family: 'CenturyGothicRegular', sans-serif;">-->
+<!--                            <h2 style = "color: #FAFA05!important; font-family: 'CenturyGothicRegular', sans-serif; font-weight: 100">Записаться на игру-тренинг</h2>-->
+<!---->
+<!--                            <form method = post action="handler.php">-->
+<!--                                <input type = "text" style = "width: 50%; height: 55px; border-radius: 20px; padding-left: 15px; color: #000; margin-top:30px;" name = "name" placeholder="Имя" required>-->
+<!--                                <input type = "text" style = "width: 50%; height: 55px; border-radius: 20px; padding-left: 15px; color:#000; margin-top:30px;" name = "phone" placeholder="+7 (ххх) хх хх ххх" required>-->
+<!--                                <input type = "email" style = "width: 50%; height: 55px; border-radius: 20px; padding-left: 15px; color: #000; margin-top:30px;" name = "name" placeholder="Email" required>-->
+<!---->
+<!--                                <br><button type = "submit" class = "go-to-game-last"> Хочу на игру! </button>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
 
         <!--
         End Register from
@@ -359,39 +387,37 @@
         Contacts
         ==================================== -->
 
-        <section id="contacts" class="contacts" style = "padding: 0">
-            <div class="parallax-overlay" style = "background: rgba(255,255, 0, 0.5)">
+        <section id="contacts" class="contacts" style = "padding-top: 0;">
+            <div class="parallax-overlay" style = "background: rgba(255,255, 0, 1); padding: 20px 0 20px 0;">
                 <div class="container">
                     <div class="row number-counters">
 
-                        <div class="sec-title text-center mb50 wow rubberBand animated" data-wow-duration="1000ms">
+                        <div class="last-title text-center mb50 wow rubberBand animated" data-wow-duration="1000ms">
                             <h2 style="color: #000000; font-family: 'CenturyGothicRegular', sans-serif; font-weight: 100">Как нас найти?</h2>
                         </div>
 
                         <!-- first count item -->
                         <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
-                            <div class="counters-item">
+                            <div class="counters-item contacts">
                                 <i class="fa fa-map-marker fa-3x"></i>
-<!--                                <strong data-to="25.10">20.50</strong>-->
                                 <p>г. Краснодар <br> ул. Северная 400 <br> офис 405 </p>
                             </div>
                         </div>
 
-
                         <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
-                            <div class="counters-item">
+                            <div class="counters-item contacts">
                                 <i class="fa fa-phone fa-3x"></i>
                                 <p>+7 (918) 57 90 191</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
-                            <div class="counters-item">
+                            <div class="counters-item contacts">
                                 <i class="fa fa-envelope fa-3x"></i>
                                 <p> cherednikova_any@mail.ru </p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
-                            <div class="counters-item">
+                            <div class="counters-item contacts">
                                 <i class="fa fa-vk fa-3x"></i>
                                 <p><a target="_blank" href = "https://vk.com/growth_area"> https://vk.com/growth_area </a></p>
                             </div>
@@ -409,12 +435,48 @@
         End Contact Us
         ==================================== -->
 
+        <!-- Форма обратной связи в модальном окне -->
+        <div class="modal fade" id="feedbackForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document" style = "text-align: center; width: 400px; background-color: #000; margin:auto;">
+                <div class="modal-content save-window">
+                    <div class="modal-header">
+                        <h2 style = "color: #000; font-family: 'CenturyGothicRegular', sans-serif; font-weight: 100">ЗАПИСЬ НА ИГРУ</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div style ="margin: auto;">
+                                <form method = post action="handler.php" onsubmit="standart_send(); return false;">
+                                    <input id = "name3" type = "text" style = "font-size:15px; width: 90%; height: 35px; border-radius: 20px; padding-left: 15px; color: #000; margin-top:25px;" name = "name" placeholder="Имя" required>
+                                    <input id = "phone3" type = "text" style = "font-size:15px; width: 90%; height: 35px; border-radius: 20px; padding-left: 15px; color:#000; margin-top:15px;" name = "phone" placeholder="+7 (ххх) хх хх ххх" required>
+                                    <input id = "email3" type = "email" style = "font-size:15px; width: 90%; height: 35px; border-radius: 20px; padding-left: 15px; color: #000; margin-top:15px;" name = "name" placeholder="Email" required>
+
+                                    <br><button type = "submit" class = "get-bonus"> Хочу на игру! </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="modal fade" id="thanks" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document" style = "text-align: center; width: 400px; background-color: #000; margin:auto;">
+                <div class="modal-content save-window">
+                    <div class="modal-body">
+                        <div style = "margin: auto;">
+                            <p> Благодарим, ваша заявка принята, наш менеджер с вами свяжется!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <footer id="footer" class="footer" style="padding-top: 0;">
-            <p style = "padding-top: 20px"> @Территория роста 2018 </p>
+            <p style = "padding-top: 20px"> @Клуб "Финансовая свобода" 2018 </p>
         </footer>
 
-        <a href="javascript:void(0);" id="back-top"><i class="fa fa-angle-up fa-3x"></i></a>
+        <a href="#body" id="back-top"><i class="fa fa-angle-up fa-3x"></i></a>
 
     </body>
 </html>

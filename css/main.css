@@ -88,10 +88,15 @@ body > section,
 	padding: 70px 0;
 }
 
-.sec-title {}
+.last-title h2{
+    color: #000!important;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
 
 .sec-title h2 {
-  color: #000;
+  color: #fff!important;
   font-size: 28px;
   font-weight: 800;
   text-transform: uppercase;
@@ -109,16 +114,11 @@ body > section,
 }
 
 .devider {
-  margin-top: 30px;
-}
-
-.devider:before,
-.devider:after {
-    letter-spacing: 0;
-    content: "________________________";
-  color: #FAFA05;
-  position: relative;
-  bottom: 15px;
+    margin: auto;
+    margin-bottom: 40px;
+    width: 200px;
+    height: 5px;
+    background-color: #FAFA05;
 }
 
 .mb50 {
@@ -533,11 +533,15 @@ top: -8px;
 
 .parallax-overlay {
 	background-color: #000000;
-	padding: 70px 0;
+	padding: 20px 0 0 0;
 }
 
-.counters-item {
+.contacts {
   color: #000;
+}
+
+.peoples {
+    color: #fff;
 }
 
 .counters-item i {
@@ -559,7 +563,7 @@ top: -8px;
 }
 
 .counters-item p {
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 15px;
 }
 
@@ -854,6 +858,16 @@ label.error {
     background-color: #FAFA05;
     color: #000;
     margin-top: 50px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.get-bonus{
+    background-color: #FAFA05;
+    color: #000;
+    margin-top: 20px;
     padding: 10px 15px 10px 15px;
     border-radius: 20px;
     font-size: 18px;

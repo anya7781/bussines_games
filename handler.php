@@ -1,50 +1,44 @@
+
 <?php
     require 'plugin-mail/3rdparty/PHPMailer/PHPMailerAutoload.php';
 
-    /* Get data from form */
-    $name =  $_POST['name'];
-    $phone =  $_POST['phone'];
-
-    if (isset($_POST['game']))
-        $game = $_POST['game'];
-    else $game = 'запись из шапки';
-
-    $date = date('F j, Y, g:i a');
+    $link = mysql_connect('localhost', 'root', '');
+    mysql_select_db('genues');
 
 
-//    /*  Write to file */
-//    $file = 'sample.csv';
-//    $tofile = "'$name';'$phone';'$game';'$date'; \n";
-//    $bom = "\xEF\xBB\xBF";
-//    @file_put_contents($file,  $tofile . file_get_contents($file));
-//
-//
-//        /* Send mail  */
-//        $mail = new PHPMailer();
-//        $mail->SMTPOptions = array(
-//            'ssl' => array(
-//                'verify_peer' => false,
-//                'verify_peer_name' => false,
-//                'allow_self_signed' => true
-//            )
-//        );
-//        $mail->From     = 'cherednikova.any@gmail.com';
-//        $mail->FromName = 'Территория роста';
-//        $mail->IsSMTP();
-//        $mail->Mailer   = "smtp";
-//        $mail->SMTPSecure = 'ssl';
-//        $mail->Host       = 'smtp.gmail.com';
-//        $mail->SMTPAuth   = true;
-//        $mail->Port       = 465;
-//        $mail->Username   = "cherednikova.any@gmail.com";
-//        $mail->Password   = "kerriwalsh97";
-//        $mail->addAddress('cherednikova_any@mail.ru');
-//        $mail->CharSet = "UTF-8";
-//        $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
-//        $mail->isHTML(true);                                  // Set email format to HTML
-//        $mail->Subject = 'Обработка нового клиента';
-//        $mail->Body    = 'Мы получили новую заявку <br> Имя: '.$name.'<br> Телефон: '.$phone.'<br> Игра: '.$game;
-//        $mail->AltBody = 'Новый клиент занесен в базу';
-//        $mail->send();
+    if (isset($_POST['source'])){
+        $source = $_POST['source'];
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $date = date('y-m-s H:i:s');
 
-        header('Location: /thanks.php', true, 303);
+        if (isset($_POST['email'])){
+            $email = $_POST['email'];
+            $query = 'INSERT INTO User (name, phone, date, source, email) VALUES ("'.$name.'", 
+                            "'.$phone.'","'.$date.'","'.$source.'","'.$email.'")';
+            mysql_query($query);
+
+            /* if present, send video */
+        }
+        else{
+            $query = 'INSERT INTO User (name, phone, date, source) VALUES ("'.$name.'", 
+                            "'.$phone.'","'.$date.'","'.$source.'")';
+            mysql_query($query);
+        }
+    }
+
+        // несколько получателей
+        $to = 'cherednikova_any@mail.ru';
+        // тема письма
+        $subject = 'Новая заявка| Клуб Финансовая свобода';
+        // текст письма
+        $message = '<p>Вам пришла новая заявка:</p>
+                <p>Имя:'.$name.'</p> <p>Телефон:'.$phone.'</p> <p> Источник: </p>'.$source;
+        // Для отправки HTML-письма должен быть установлен заголовок Content-type
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        // Дополнительные заголовки
+        $headers[] = 'To: Pavel <cherednikova_any@mail.ru>';
+        $headers[] = 'From: Admin <cherednikova_any@mail.ru>';
+        // Отправляем
+        mail($to, $subject, $message, implode("\r\n", $headers));

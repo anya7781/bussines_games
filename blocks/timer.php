@@ -1,11 +1,13 @@
 <?php
     $curday = date('d.m.Y h:i:s');
-    $d1 =  1513647302;
+    $gameday = "17.03.2018 17:0:0";
+
+    $d1 =  strtotime($gameday);
     $d2 = strtotime($curday);
 
-    if ($d1 - $d2 < 200){
-        $d1 = $d2 + 10000;
-    }
+//    if ($d1 - $d2 < 200){
+//        $d1 = $d2 + 10000;
+//    }
 
     $diff = $d1 - $d2;
 ?>
@@ -14,7 +16,6 @@
 <html>
     <head>
         <link rel="stylesheet" href="../compiled/flipclock.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="../compiled/flipclock.js"></script>
     </head>
 
@@ -34,7 +35,7 @@
                         autoStart: false,
                         callbacks: {
                             stop: function() {
-                                $('.message').html('The clock has stopped!')
+                                $('.message').html('Событие уже прошло!')
                             }
                         }
                     });

@@ -11,6 +11,12 @@
     line-height: 50px;
   }
 }
+
+p, h2{
+    font-family: "CenturyGothicRegular", sans-serif;
+}
+
+
 h3 {
   font-size: 34px;
   line-height: 40px;
@@ -104,7 +110,7 @@ a[href^="tel:"] {
   margin-top: 26px;
 }
 * + p {
-  margin-top: 15px;
+  /*margin-top: 15px;*/
 }
 h2 + p {
   margin-top: 22px;
@@ -192,7 +198,7 @@ q + .img {
 .parallax01 {
   background-color: #FFF;
   background-image: url(../img/banner.jpg);
-  padding: 210px 0 187px;
+  padding: 110px 0 67px;
 }
 @media (max-width: 767px) {
   .parallax01 {
@@ -328,8 +334,8 @@ blockquote q:before {
 .header_text{
   font-family: "CenturyGothicRegular", sans-serif;
   margin-top: -85px;
-  background-color: #ffffff;
-  opacity: 0.7;
+  background: rgba(255, 255, 0, 0.7);
+  /*opacity: 0.5;*/
   border-radius: 100px;
   color: #000000;
     padding: 20px;
@@ -381,7 +387,8 @@ header h2 + p {
   margin-top: 0;
 }
 header * + .row {
-  margin-top: 40px;
+    margin-bottom:0!important;
+  /*margin-top: 40px;*/
 }
 /*==================== Top Panel ====================*/
 .top-panel {
@@ -469,7 +476,7 @@ main {
 }
 /*==================== Shadow ====================*/
 .shadow {
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 }
 /*========================================================
 					 FOOTER  Styles
@@ -504,4 +511,70 @@ footer {
   letter-spacing: 2.8px;
   text-transform: uppercase;
   margin: 0;
+}
+
+#navigation{
+    z-index:1;
+}
+.people{
+    padding: 50px 0 50px 0;
+    margin-top:20px;
+    background-image: url(../img/conf.jpg);
+}
+
+.full{
+    width: 100% !important;
+}
+
+.game-name{
+  color: #FAFA05!important;
+  font-size: 70px;
+  margin-top: 80px;
+  font-family: "Ubuntu", sans-serif!important;
+}
+
+@media (max-width: 767px) {
+  .game-name{
+    font-size:35px;
+  }
+
+    .text{
+        font-size: 17px;
+    }
+    .bonus{
+        width: 100%!important;
+    }
+    .about-game > p{
+       font-size: 15px;
+    }
+}
+
+.faq {
+  counter-reset: my-badass-counter;
+}
+
+.line{
+    margin-right: 5px;
+}
+
+.text{
+    position: absolute;
+}
+
+.bonus{
+    background-color: #000;
+    width: 50%;
+    padding-top:30px;
+}
+
+.about-game{
+    /*width: 100%;*/
+    /*background-color: #FAFA05;*/
+    /*padding: 20px 100px;*/
+    color: #000;
+    font-size: 20px;
+}
+
+.about-game > p{
+    margin: 15px!important;
 }
